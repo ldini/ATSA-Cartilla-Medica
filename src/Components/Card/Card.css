@@ -1,0 +1,37 @@
+.card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(45% - 10px); /* Para tener dos cartillas por fila con espacio de 10px entre ellas */
+  margin-right: 10px; /* Agregar margen derecho entre las cartillas */
+  transition: justify-content 0.3s ease;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card .info {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.card .label {
+  font-weight: bold;
+}
+
+.card .phone {
+  color: #888;
+}
+
+@media screen and (max-width: 860px) {
+  .card {
+    width: 100%; /* Cambiar el ancho a 100% para que ocupe toda la fila en pantallas pequeñas */
+    margin-right: 0; /* Eliminar el margen derecho en pantallas pequeñas */
+    transition: justify-content 0.3s ease;
+  }
+}

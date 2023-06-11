@@ -1,0 +1,93 @@
+[
+    {
+      "especialidad": "Cardiología",
+      "nombre": "Dr. Rossendy Jhony",
+      "dias": "lunes",
+      "horario": "12:00 a 15:30 hs",
+      "telefono": "123456789",
+      "direccion": "Calle Principal 123",
+      "localidad": "Ciudad A"
+    },
+    {
+      "especialidad": "Cardiología",
+      "nombre": "Dr. Rossendy Jhony",
+      "dias": "martes",
+      "horario": "14:30 a 16:45 hs",
+      "telefono": "987654321",
+      "direccion": "Avenida Central 456",
+      "localidad": "Ciudad B"
+    },
+    {
+      "especialidad": "Cardiología",
+      "nombre": "Dr. Rossendy Jhony",
+      "dias": "miércoles",
+      "horario": "13:00 a 16:45 hs",
+      "telefono": "567890123",
+      "direccion": "Calle Principal 789",
+      "localidad": "Ciudad A"
+    },
+    {
+      "especialidad": "Cardiología",
+      "nombre": "Dr. Rossendy Jhony",
+      "dias": "viernes",
+      "horario": "14:30 a 17:00 hs",
+      "telefono": "321098765",
+      "direccion": "Avenida Central 321",
+      "localidad": "Ciudad B"
+    },
+    {
+      "especialidad": "Cardiología",
+      "nombre": "Dr. Rodríguez Sebastián",
+      "dias": "jueves",
+      "horario": "9 a 12 hs",
+      "telefono": "654321987",
+      "direccion": "Calle Principal 987",
+      "localidad": "Ciudad C"
+    },
+    {
+      "especialidad": "Cardiología",
+      "nombre": "Dra. Funes Alejandra",
+      "dias": "miércoles",
+      "horario": "12:30 a 16 hs",
+      "telefono": "789654321",
+      "direccion": "Avenida Central 654",
+      "localidad": "Ciudad B"
+    },
+    {
+      "especialidad": "Cardiología",
+      "nombre": "Dra. Funes Alejandra",
+      "dias": "viernes",
+      "horario": "09 a 12 hs",
+      "telefono": "456123789",
+      "direccion": "Calle Principal 321",
+      "localidad": "Ciudad C"
+    },
+    {
+      "especialidad": "Cardiología Infantil",
+      "nombre": "Dr. Auche Marcos",
+      "dias": "martes",
+      "horario": "09 a 11:30 hs",
+      "telefono": "987123456",
+      "direccion": "Avenida Central 987",
+      "localidad": "Ciudad D"
+    },
+    {
+      "especialidad": "Cirugía General",
+      "nombre": "Dr. Hansen Martin",
+      "dias": "martes",
+      "horario": "08:15 a 11:30 hs",
+      "telefono": "321456987",
+      "direccion": "Calle Principal 456",
+      "localidad": "Ciudad E"
+    },
+    {
+      "especialidad": "Cirugía General",
+      "nombre": "Dra. Scaramal Liliana",
+      "dias": "miércoles",
+      "horario": "09:30 a 14:30 hs",
+      "telefono": "654789321",
+      "direccion": "Avenida Central 789",
+      "localidad": "Ciudad F"
+    }
+  ]
+  
