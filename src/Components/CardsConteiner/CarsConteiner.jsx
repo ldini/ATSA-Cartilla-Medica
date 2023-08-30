@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import './CarsContainer.css';
-import data from '../../data/cartilla.json';
 
 const CarsContainer = () => {
   const [cityFilter, setCityFilter] = useState('');
   const [specialtyFilter, setSpecialtyFilter] = useState('');
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/prestador/detail');
+      console.log(response);
+      const jsonData = await response.json();
+      console.log(jsonData);
+      setData(jsonData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   const handleCityFilterChange = (event) => {
     setCityFilter(event.target.value);
@@ -17,17 +33,17 @@ const CarsContainer = () => {
   };
 
   // Obtener la lista de ciudades únicas
-  const cities = [...new Set(data.map((medico) => medico.localidad))];
+  const cities = [...new Set(data.map((medico) => medico.institucion_zona))];
 
   // Obtener la lista de especialidades únicas según la ciudad seleccionada
-  const specialties = [...new Set(data.filter((medico) => medico.localidad === cityFilter).map((medico) => medico.especialidad))];
+  const specialties = [...new Set(data.filter((medico) => medico.institucion_zona === cityFilter).map((medico) => medico.especialidad_nombre))];
 
   const filteredData = data.filter((medico) => {
     const lowerCaseCity = cityFilter.toLowerCase();
     const lowerCaseSpecialty = specialtyFilter.toLowerCase();
     return (
-      (lowerCaseCity === '' || medico.localidad.toLowerCase().includes(lowerCaseCity)) &&
-      (lowerCaseSpecialty === '' || medico.especialidad.toLowerCase().includes(lowerCaseSpecialty))
+      (lowerCaseCity === '' || medico.institucion_zona.toLowerCase().includes(lowerCaseCity)) &&
+      (lowerCaseSpecialty === '' || medico.especialidad_nombre.toLowerCase().includes(lowerCaseSpecialty))
     );
   });
 
@@ -60,14 +76,14 @@ const CarsContainer = () => {
         <div className="card-container">
           {filteredData.map((medico) => (
             <Card
-              key={medico.nombre}
-              nombre={medico.nombre}
-              especialidad={medico.especialidad}
-              dia={medico.dias}
-              horario={medico.horario}
-              telefono={medico.telefono}
-              direccion={medico.direccion}
-              localidad={medico.localidad}
+              key={medico.prestador_apellido +' '+ medico.prestador_nombre}
+              nombre={medico.prestador_apellido +' '+ medico.prestador_nombre}
+              especialidad_nombre={medico.especialidad_nombre}
+              horario_dia={medico.horario_dia}
+              horario={medico.horario_hora_inicio + ' a '+ medico.horario_hora_fin}
+              telefono_numero={medico.telefono_numero}
+              institucion_direccion={medico.institucion_direccion}
+              institucion_zona={medico.institucion_zona}
             />
           ))}
         </div>
