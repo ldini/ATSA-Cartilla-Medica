@@ -28,17 +28,38 @@
 
 .select-label {
   font-weight: bold;
-  margin-right: 5px;
 }
 
 h2 {
   margin-left: 20px;
 }
+.checkGuardia{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 8px;
+  margin-left: 10px;
+}
 
-@media screen and (min-width: 860px) {
+/* @media screen and (min-width: 860px) {
   .select-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
+} */
+
+.filter-container {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center;  Centrar verticalmente los elementos */
+}
+
+.select {
+  /* Estilos para el primer select */
+  margin-right: 10px; /* Espacio entre el select y el checkbox */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center; /* Centrar verticalmente los elementos dentro del contenedor */
 }

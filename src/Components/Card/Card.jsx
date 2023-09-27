@@ -2,7 +2,11 @@ import React from 'react';
 import './Card.css';
 
 const Card = (props) => {
-  const phoneNumbers = props.telefono_numero.split(' / ');
+
+  let phoneNumbers = [];
+  if (props && props.telefono_numero !== null) 
+    phoneNumbers = props.telefono_numero.split(' / ');
+   
   const direccion = props.institucion_direccion + ', ' + props.institucion_zona;
   const urlGoogleMaps = `https://www.google.com/maps?q=${encodeURIComponent(direccion)}`;
   // const embedMapUrl = `https://www.google.com/maps/embed/v1/place?key=TU_CLAVE_DE_API&q=${encodeURIComponent(direccion)}`; mini mapa
@@ -13,12 +17,19 @@ const Card = (props) => {
     window.open(whatsappLink, '_blank');
   };
 
+
   return (
     <div className="card">
-      <h3>{props.centro}</h3>
-      <p className="info">
-        <span className="label">Especialista: </span> {props.nombre}
-      </p>
+      
+      {props.apellido === 'guardia'
+        ? <h2>{props.centro} -<span style={{color:'#49C354'}}> Guardia 24hs</span></h2 > 
+        : <h2>{props.centro}</h2>}
+
+      {props.apellido !== 'guardia' && (
+        <p className="info">
+          <span className="label">Especialista: </span> {props.nombre + ' ' + props.apellido}
+        </p>
+      )}
       <p className="info">
         <span className="label">Especialidad: </span> {props.especialidad_nombre}
       </p>
@@ -49,12 +60,6 @@ const Card = (props) => {
         })}
       </p>
       <p className="info">
-        <span className="label">Día:</span> {props.horario_dia}
-      </p>
-      <p className="info">
-        <span className="label">Horarios: </span> {props.horario}
-      </p>
-      <p className="info">
         <span className="label">Dirección: </span> 
         <a href={urlGoogleMaps} target="_blank" rel="noopener noreferrer">
           {props.institucion_direccion}, {props.institucion_zona}
@@ -63,6 +68,23 @@ const Card = (props) => {
       <p className="info">
         <span className="label">Localidad: </span> {props.institucion_zona}
       </p>
+
+      {props.apellido !== 'guardia' && (
+      <p className="info">
+        <div className="one">
+          <span className="label">Horarios: </span>
+          <div className="two">
+            {props.horarios_trabajo
+              ? props.horarios_trabajo.split(' / ').map((horario, index) => (
+                  <p className="three" key={index}>{horario}</p>
+                ))
+              : null}
+          </div>
+        </div>
+      </p>
+    )}
+
+
       {/* minimapa */}
       {/* <div className="mini-map">
         <iframe
