@@ -34,7 +34,8 @@ const CarsContainer = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://192.168.0.8:3002/prestador/detail');
+      const response = await fetch('http://107.180.104.190:3000/prestador/detail');
+      // const response = await fetch('http://192.168.0.8:3002/prestador/detail');
       const jsonData = await response.json();
       console.log(jsonData);
       setData(jsonData);
