@@ -63,3 +63,8 @@ h2 {
   display: flex;
   align-items: center; /* Centrar verticalmente los elementos dentro del contenedor */
 }
+
+.select-style:hover {
+  border-color: #80bdff; /* Color de borde al pasar el ratón */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra al pasar el ratón */
+}

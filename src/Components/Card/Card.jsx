@@ -21,11 +21,11 @@ const Card = (props) => {
   return (
     <div className="card">
       
-      {props.apellido === 'guardia'
+      {props.apellido === 'Guardia'
         ? <h2>{props.centro} -<span style={{color:'#49C354'}}> Guardia 24hs</span></h2 > 
         : <h2>{props.centro}</h2>}
 
-      {props.apellido !== 'guardia' && (
+      {props.apellido !== 'Guardia' && (
         <p className="info">
           <span className="label">Especialista: </span> {props.nombre + ' ' + props.apellido}
         </p>
@@ -69,7 +69,7 @@ const Card = (props) => {
         <span className="label">Localidad: </span> {props.institucion_zona}
       </p>
 
-      {props.apellido !== 'guardia' && (
+      {props.apellido !== 'Guardia' && (
       <p className="info">
         <div className="one">
           <span className="label">Horarios: </span>
