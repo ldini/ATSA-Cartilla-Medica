@@ -18,7 +18,8 @@ const FetchComponent = () => {
 
 
 useEffect(() => {
-  fetch('http://107.180.104.190:7012/prestador/detail')
+  // fetch('http://107.180.104.190:7012/prestador/detail')
+  fetch('http://localhost:3000/prestador/detail')
     .then(response => response.json())
     .then(jsonData => {
       jsonData.sort((a, b) => {
@@ -35,7 +36,7 @@ useEffect(() => {
       const typesInData = [...new Set(jsonData.map(item => item.institucion_tipo))];
       setUniqueTypes(typesInData);
       const institutionsInData = [...new Set(jsonData.map(item => item.institucion_nombre))];
-      setUniqueInstitutions(institutionsInData);
+      setUniqueInstitutions(institutionsInData.sort());
     })
     .catch(error => console.error('Error fetching data:', error));
 }, []);
@@ -53,7 +54,7 @@ useEffect(() => {
     } else {
       typesInSelectedZone = [...new Set(data.filter(item => item.institucion_zona === selectedZone).map(item => item.institucion_tipo))];
     }
-    setUniqueTypes(typesInSelectedZone);
+    setUniqueTypes(typesInSelectedZone.sort());
   }, [selectedZone, data]);
   
 
@@ -72,7 +73,7 @@ useEffect(() => {
         uniqueInstitutionsByType = [...new Set(data.map(item => item.institucion_nombre))];
       }
     }
-    setUniqueInstitutions(uniqueInstitutionsByType);
+    setUniqueInstitutions(uniqueInstitutionsByType.sort());
   }, [selectedZone, selectedType, data]);
   
 
@@ -105,7 +106,7 @@ useEffect(() => {
         specialtiesInSelectedInstitution = [...new Set(data.filter(item => item.institucion_nombre === selectedInstitution && item.institucion_tipo === selectedType && item.institucion_zona === selectedZone).map(item => item.especialidad_nombre))];
         break;
     }
-    setUniqueSpecialties(specialtiesInSelectedInstitution);
+    setUniqueSpecialties(specialtiesInSelectedInstitution.sort());
   }, [selectedInstitution, selectedType, selectedZone, data]);
   
 
@@ -140,7 +141,7 @@ useEffect(() => {
       providersInSelectedSpecialty = [...new Set(data.filter(item => item.especialidad_nombre === selectedSpecialty && item.institucion_nombre === selectedInstitution && item.institucion_tipo === selectedType && item.institucion_zona === selectedZone).map(item => `${item.prestador_nombre} ${item.prestador_apellido}`))];
       break;
   }
-  setUniqueProviders(providersInSelectedSpecialty);
+  setUniqueProviders(providersInSelectedSpecialty.sort());
 }, [selectedZone,selectedType,selectedSpecialty,selectedInstitution, data]);
 
 
