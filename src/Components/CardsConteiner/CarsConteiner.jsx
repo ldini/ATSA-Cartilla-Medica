@@ -6,7 +6,7 @@ import './CarsContainer.css';
 const FetchComponent = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [selectedZone, setSelectedZone] = useState('');
+  const [selectedZone, setSelectedZone] = useState('all');
   const [selectedType, setSelectedType] = useState('');
   const [selectedInstitution, setSelectedInstitution] = useState('');
   const [selectedSpecialty, setSelectedSpecialty] = useState('');
@@ -23,10 +23,10 @@ useEffect(() => {
     .then(response => response.json())
     .then(jsonData => {
       jsonData.sort((a, b) => {
-        if (a.institucion_nombre < b.institucion_nombre) {
+        if (a.institucion_zona < b.institucion_zona) {
           return -1;
         }
-        if (a.institucion_nombre > b.institucion_nombre) {
+        if (a.institucion_zona > b.institucion_zona) {
           return 1;
         }
         return 0;
@@ -280,7 +280,6 @@ useEffect(() => {
 <div>
   <div>
     <select className="form-select select-style" value={selectedZone} onChange={(e) => handleZoneFilter(e.target.value)}>
-      <option value="">Seleccione una zona</option>
       <option value="all">Todas las zonas</option>
       {uniqueZones.map((zone, index) => (
         <option key={index} value={zone}>
